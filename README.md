@@ -36,6 +36,19 @@ This project is a web application that allows users to search for images using t
 
 ## Usage
 
+### Creating a Vector Database
+
+To create a vector database from a dataset of images, use the `create_vectordb.py` script. This script takes two arguments: the path to the dataset folder and the name of the vector database.
+
+1. **Run the script**:
+    ```sh
+    python create_vectordb.py /path/to/dataset_folder my_vectordb_name
+    ```
+
+    Replace `/path/to/dataset_folder` with the actual path to your dataset folder and `my_vectordb_name` with the desired name for your ChromaDB vector database.
+
+### Running the Streamlit Application
+
 1. **Run the Streamlit application**:
     ```sh
     streamlit run streamlit_app.py
@@ -78,3 +91,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [ChromaDB](https://chromadb.com/)
 - [Google Text-to-Speech](https://pypi.org/project/gTTS/)
 - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
+
