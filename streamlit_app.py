@@ -24,6 +24,7 @@ logger = logging.getLogger(__name__)
 
 # Initialize Gemini API with Gemini Pro model
 API_KEY = os.getenv("API_KEY")
+vectordb = os.getenv("vectordb")
 genai.configure(api_key=API_KEY)
 
 
@@ -89,7 +90,7 @@ def find_top_k_images(query_text, index_name="multimodal_db", k=5):
 
 
     # Load ChromaDB collection
-    client = chromadb.PersistentClient(path="my_vectordb_test")
+    client = chromadb.PersistentClient(path=vectordb)
     image_loader = ImageLoader()
     multimodal_ef = OpenCLIPEmbeddingFunction()
     collection = client.get_or_create_collection(name=index_name, embedding_function=multimodal_ef, data_loader=image_loader)
