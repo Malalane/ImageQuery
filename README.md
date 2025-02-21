@@ -34,11 +34,44 @@ This project is a web application that allows users to search for images using t
     API_KEY=your_gemini_api_key
     ```
 
+## Downloading Images
+
+To download images for the dataset, follow these steps:
+
+### Option 1: Download from Kaggle Website
+
+1. **Go to the Kaggle competition page**: [Detect AI vs Human Generated Images](https://www.kaggle.com/competitions/detect-ai-vs-human-generated-images)
+
+2. **Download the dataset**: Follow the instructions on the Kaggle page to download the dataset to your local machine.
+
+3. **Extract the dataset**: Extract the downloaded dataset to a directory of your choice.
+
+### Option 2: Download using the Kaggle API
+
+1. **Install the Kaggle API**:
+    ```sh
+    pip install kaggle
+    ```
+
+2. **Set up Kaggle API credentials**:
+    - Go to your Kaggle account and create a new API token.
+    - Download the `kaggle.json` file and place it in the `~/.kaggle/` directory (create the directory if it doesn't exist).
+
+3. **Download the dataset using the Kaggle API**:
+    ```sh
+    kaggle competitions download -c detect-ai-vs-human-generated-images
+    ```
+
+4. **Extract the dataset**:
+    ```sh
+    unzip detect-ai-vs-human-generated-images.zip -d /path/to/dataset_folder
+    ```
+
 ## Usage
 
 ### Creating a Vector Database
 
-To create a vector database from a dataset of images, use the `create_vectordb.py` script. This script takes two arguments: the path to the dataset folder and the name of the vector database.
+To create a vector database from the downloaded dataset of images, use the `create_vectordb.py` script. This script takes two arguments: the path to the dataset folder and the name of the vector database.
 
 1. **Run the script**:
     ```sh
@@ -62,8 +95,13 @@ To create a vector database from a dataset of images, use the `create_vectordb.p
 
 4. **View Results**: The application will display the most relevant images along with audio descriptions.
 
+5. **Install Rosetta on macOS**:
+    If you are using macOS, you will need to install Rosetta to get audio to work on Streamlit:
+    ```sh
+    softwareupdate --install-rosetta
+
 ## File Structure
-project/ │ ├── app/ │ ├── init.py │ ├── config.py │ ├── routes.py │ ├── utils.py │ └── templates/ │ └── index.html │ ├── static/ │ └── images/ │ ├── run.py ├── streamlit_app.py ├── requirements.txt └──
+project/ │  │ └── vectordatabase/ │ ├── create_vectordb.py ├── streamlit_app.py ├── requirements.txt └──
 
 
 ## Dependencies
@@ -75,10 +113,10 @@ project/ │ ├── app/ │ ├── init.py │ ├── config.py │ �
 - `numpy`
 - `google-generativeai`
 - `chromadb`
-- `llama-index`
 - `SpeechRecognition`
 - `gtts`
 - `streamlit-webrtc`
+
 
 ## License
 
