@@ -29,9 +29,10 @@ This project is a web application that allows users to search for images using t
     ```
 
 4. **Set up environment variables**:
-    Create a `.env` file in the root directory and add the following:
-    ```env
-    API_KEY=your_gemini_api_key
+    Create environment variables in the root directory using the following export on the terminal:
+    
+    export API_KEY=your_gemini_api_key
+    export vectordb = your_vectordatabase_name
     ```
 
 ## Downloading Images
