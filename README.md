@@ -13,8 +13,8 @@ This project is a web application that allows users to search for images using t
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository
+    git clone https://github.com/Malalane/ImageQuery.git
+    cd ImageQuery
     ```
 
 2. **Create a virtual environment**:
