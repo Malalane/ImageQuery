@@ -1,12 +1,12 @@
-# Image Search with ChromaDB and Gemini
+# Image Search with ChromaDB and BLIP
 
-This project is a web application that allows users to search for images using text or audio queries. The application uses ChromaDB for image indexing and retrieval, and the Gemini API for generating text embeddings. Users can input their queries via text or microphone, and the application will return the most relevant images along with audio descriptions.
+This project is a web application that allows users to search for images using text or audio queries. The application uses ChromaDB for image indexing and retrieval, and the BLIP model for generating image descriptions. Users can input their queries via text or microphone, and the application will return the most relevant images along with audio descriptions.
 
 ## Features
 
 - **Text Query**: Users can input a text query to search for images.
 - **Audio Query**: Users can use their microphone to input an audio query, which will be transcribed to text and used for the search.
-- **Image Descriptions**: The application generates audio descriptions for each image result.
+- **Image Descriptions**: The application generates audio descriptions for each image result using the BLIP model.
 - **Real-time Audio Streaming**: Uses `streamlit-webrtc` for real-time audio streaming from the microphone.
 
 ## Installation
@@ -31,8 +31,8 @@ This project is a web application that allows users to search for images using t
 4. **Set up environment variables**:
     Create environment variables in the root directory using the following export on the terminal:
     
-    export API_KEY=your_gemini_api_key
-    export vectordb = your_vectordatabase_name
+    ```sh
+    export vectordb=your_vectordatabase_name
     ```
 
 ## Downloading Images
@@ -100,10 +100,20 @@ To create a vector database from the downloaded dataset of images, use the `crea
     If you are using macOS, you will need to install Rosetta to get audio to work on Streamlit:
     ```sh
     softwareupdate --install-rosetta
+    ```
 
 ## File Structure
-project/ │  │ └── vectordatabase/ │ ├── create_vectordb.py ├── streamlit_app.py ├── requirements.txt └──
 
+```
+project/
+│
+├── vectordatabase/
+│
+├── create_vectordb.py
+├── streamlit_app.py
+├── requirements.txt
+└── README.md
+```
 
 ## Dependencies
 
@@ -112,12 +122,12 @@ project/ │  │ └── vectordatabase/ │ ├── create_vectordb.py ├
 - `torchvision`
 - `Pillow`
 - `numpy`
-- `google-generativeai`
 - `chromadb`
 - `SpeechRecognition`
 - `gtts`
 - `streamlit-webrtc`
-
+- `transformers`
+- `keybert`
 
 ## License
 
@@ -126,7 +136,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgements
 
 - [Streamlit](https://streamlit.io/)
-- [Google Generative AI](https://cloud.google.com/ai-platform/generative-ai)
+- [Hugging Face](https://huggingface.co/)
 - [ChromaDB](https://chromadb.com/)
 - [Google Text-to-Speech](https://pypi.org/project/gTTS/)
 - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
